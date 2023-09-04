@@ -37,7 +37,7 @@ class Parser
     ArgValidator::assert($time, array('string', 'numeric'));
     ArgValidator::assert($expr, 'string');
 
-    $cronExpr = preg_split('/\s+/', $expr, null, PREG_SPLIT_NO_EMPTY);
+    $cronExpr = preg_split('/\s+/', $expr, -1, PREG_SPLIT_NO_EMPTY);
     if (count($cronExpr) !== 5) {
       throw new Exception\InvalidArgumentException(sprintf(
          'cron expression should have exactly 5 arguments, "%s" given',
